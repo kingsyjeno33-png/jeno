@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EduGenie – Your AI-Powered Learning Assistant</title>
+  <meta name="description" content="Ask questions, understand concepts, take quizzes, summarize notes and plan your learning with EduGenie.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%235B4BFF'/%3E%3Cpath d='M16 6l2.6 6.4L25 15l-6.4 2.6L16 24l-2.6-6.4L7 15l6.4-2.6z' fill='%23fff'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+  <script>
+    /* Apply the saved theme before first paint to avoid a flash. */
+    (function () {
+      try {
+        var saved = localStorage.getItem("edugenie-theme");
+        var dark = saved ? saved === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.dataset.theme = dark ? "dark" : "light";
+      } catch (e) { document.documentElement.dataset.theme = "light"; }
+    })();
+  </script>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body data-task="qa">
+  <a class="skip-link" href="#workspace">Skip to workspace</a>
+
+  <div class="app">
+    <!-- ========== Sidebar / task picker ========== -->
+    <aside class="sidebar">
+      <div class="brand">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+          <rect width="32" height="32" rx="9" fill="#5B4BFF"/>
+          <path d="M16 6l2.6 6.4L25 15l-6.4 2.6L16 24l-2.6-6.4L7 15l6.4-2.6z" fill="#fff"/>
+        </svg>
+        <div>
+          <p class="brand-name">EduGenie</p>
+          <p class="brand-sub">Your AI-Powered Learning Assistant</p>
+        </div>
+      </div>
+
+      <nav class="task-nav" aria-label="Choose a learning tool" id="taskNav">
+        <button class="nav-item" data-task="qa" aria-pressed="true">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg>
+          <span><b>Ask Question</b><small>Get a quick, clear answer</small></span>
+        </button>
+        <button class="nav-item" data-task="explain" aria-pressed="false">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/></svg>
+          <span><b>Explain Topic</b><small>Hard ideas, made simple</small></span>
+        </button>
+        <button class="nav-item" data-task="quiz" aria-pressed="false">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11l3 3 8-8M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg>
+          <span><b>Generate Quiz</b><small>Test yourself in 3 questions</small></span>
+        </button>
+        <button class="nav-item" data-task="summarize" aria-pressed="false">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h10M4 18h14"/></svg>
+          <span><b>Summarize</b><small>Shrink long notes to key points</small></span>
+        </button>
+        <button class="nav-item" data-task="path" aria-pressed="false">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17h5a3.5 3.5 0 0 0 0-7H9a3.5 3.5 0 0 1 0-7h6M5 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM19 5a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/></svg>
+          <span><b>Learning Path</b><small>Beginner to advanced roadmap</small></span>
+        </button>
+      </nav>
+
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch colour theme">
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5z"/></svg>
+        <span id="themeLabel">Dark mode</span>
+      </button>
+    </aside>
+
+    <!-- ========== Workspace ========== -->
+    <main class="workspace" id="workspace">
+      <header class="page-head">
+        <h1 id="pageTitle">What are you studying today?</h1>
+        <p id="pageHint">Pick a tool on the left, type what you need, and press Generate.</p>
+      </header>
+
+      <section class="composer" aria-labelledby="composerTitle">
+        <div class="composer-head">
+          <h2 id="composerTitle">Ask a question</h2>
+          <p id="composerHint">Get a short, clear answer with an example when it helps.</p>
+        </div>
+
+        <label class="sr-only" for="mainInput">Your input</label>
+        <textarea id="mainInput" rows="5" placeholder="Ask your question here..."></textarea>
+
+        <div class="path-fields" id="pathFields" hidden>
+          <div class="field">
+            <label for="topicInput">Topic</label>
+            <input id="topicInput" type="text" placeholder="e.g. Python, SQL, Biology" autocomplete="off">
+          </div>
+          <div class="field field-level">
+            <label for="levelSelect">Your level</label>
+            <select id="levelSelect">
+              <option value="Beginner">Beginner</option>
+              <option value="Intermediate">Intermediate</option>
+              <option value="Advanced">Advanced</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="examples" id="examples" aria-label="Example inputs"></div>
+
+        <div class="composer-foot">
+          <span class="counter" id="counter" aria-live="off">0 / 1000</span>
+          <div class="actions">
+            <span class="shortcut" aria-hidden="true">Ctrl + Enter</span>
+            <button class="btn-generate" id="generateBtn" type="button">
+              <span class="btn-spinner" aria-hidden="true"></span>
+              <span id="generateLabel">Generate</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="result" id="result" aria-live="polite" aria-busy="false">
+        <div class="empty" id="emptyState">
+          <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 6l3.9 9.6L38 19.5l-10.1 3.9L24 33l-3.9-9.6L10 19.5l10.1-3.9z"/><path d="M36 30l1.6 3.9L42 35.5l-4.4 1.6L36 41l-1.6-3.9L30 35.5l4.4-1.6z"/></svg>
+          <p>Your result will appear here.</p>
+        </div>
+        <div id="resultBody"></div>
+      </section>
+
+      <footer class="page-foot">EduGenie uses Google Gemini. AI can make mistakes, so double-check important facts.</footer>
+    </main>
+  </div>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>
