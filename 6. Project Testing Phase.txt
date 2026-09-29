@@ -1,0 +1,36 @@
+6. Project Testing Phase
+
+The EduGenie application is tested to verify that all major functionalities work correctly.
+
+Test Case 1: Question Answering
+Input: An educational question
+Expected Result: Relevant AI-generated answer
+
+Test Case 2: Concept Explanation
+Input: A complex topic
+Expected Result: Simple and understandable explanation
+
+Test Case 3: Quiz Generation
+Input: Topic or educational passage
+Expected Result: 3 MCQs with 4 options each
+
+Test Case 4: Text Summarization
+Input: Long educational paragraph
+Expected Result: Short and meaningful summary
+
+Test Case 5: Learning Recommendation
+Input: Learning topic
+Expected Result: Beginner-to-advanced learning path
+
+Test Case 6: API Testing
+• Verify all FastAPI endpoints.
+• Check request and response handling.
+• Verify error handling.
+
+Test Case 7: Frontend Testing
+• Verify task selection.
+• Verify user input.
+• Verify submit functionality.
+• Verify that generated results are displayed correctly.
+
+The application is also tested by running it locally using Uvicorn and checking the complete frontend-backend integration.

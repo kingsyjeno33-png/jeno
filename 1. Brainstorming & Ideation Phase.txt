@@ -1,0 +1,14 @@
+1. Brainstorming & Ideation Phase
+
+Project Name: EduGenie – Google Gemini Powered Learning Assistant
+
+The idea of EduGenie is to develop an AI-powered educational assistant that helps students learn concepts easily and interactively.
+
+The main idea is to use Generative AI to provide:
+• Smart question and answer
+• Simplified explanations for complex concepts
+• Quiz generation
+• Educational text summarization
+• Personalized learning recommendations
+
+The system is designed for students, self-learners, and educational users. EduGenie aims to make learning easier, faster, and more personalized through Artificial Intelligence.

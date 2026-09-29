@@ -1,0 +1,39 @@
+3. Project Design Phase
+
+EduGenie follows a modular architecture consisting of a frontend, FastAPI backend, AI modules, and AI models.
+
+Architecture:
+
+User
+  ↓
+HTML + CSS Frontend
+  ↓
+FastAPI Backend
+  ↓
+AI Modules
+  ├── Q&A Module
+  ├── Explanation Module
+  ├── Quiz Module
+  ├── Summary Module
+  └── Learning Path Module
+  ↓
+Gemini API / LaMini-Flan-T5 Model
+  ↓
+Generated Response
+  ↓
+Frontend
+
+Project Folder Structure:
+
+EduGenie/
+├── main.py
+├── explanation_module.py
+├── qna.py
+├── quiz_module.py
+├── summary_module.py
+├── learning_path.py
+├── templates/
+│   └── index.html
+├── static/
+│   └── style.css
+└── requirements.txt

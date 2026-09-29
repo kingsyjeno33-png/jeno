@@ -1,0 +1,45 @@
+5. Project Development Phase
+
+The development phase involves implementing all the planned modules and integrating them with the FastAPI backend and frontend.
+
+1. Explanation Module
+• Uses LaMini-Flan-T5-783M.
+• Provides simple and readable explanations.
+• Helps beginners understand complex concepts.
+
+2. Q&A Module
+• Uses Google Gemini.
+• Provides answers to educational and general knowledge questions.
+
+3. Quiz Module
+• Generates 3 multiple-choice questions.
+• Each question contains 4 options.
+• Generates a correct answer for each question.
+• Uses structured JSON output.
+
+4. Summary Module
+• Uses Gemini to summarize long educational passages.
+• Retains important information.
+• Removes unnecessary or repetitive content.
+
+5. Learning Path Module
+• Generates personalized learning recommendations.
+• Organizes topics from beginner to advanced level.
+• Provides structured guidance and learning resources.
+
+6. FastAPI Backend
+The following REST API endpoints are implemented:
+
+/qa
+/explain
+/quiz
+/summarize
+/learn/recommendations
+
+7. Frontend
+• HTML-based user interface.
+• CSS-based responsive design.
+• Task selection dropdown.
+• Text input area.
+• Submit button.
+• Result display section.

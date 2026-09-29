@@ -1,0 +1,27 @@
+2. Requirement Analysis Phase
+
+Functional Requirements:
+
+• The user should be able to ask educational questions.
+• The system should provide smart and concise answers.
+• The system should explain complex concepts in simple language.
+• The user should be able to generate quizzes from topics or text.
+• The system should summarize long educational passages.
+• The system should provide personalized learning recommendations.
+
+Software Requirements:
+
+• Python 3.10+
+• FastAPI
+• HTML
+• CSS
+• Google Gemini API
+• Uvicorn
+• Jinja2
+• LaMini-Flan-T5-783M
+
+Hardware Requirements:
+
+• Computer/Laptop
+• Internet connection for Gemini API
+• Basic system capable of running Python and the required AI libraries

@@ -1,0 +1,46 @@
+8. Project Demonstration Phase
+
+The final demonstration of EduGenie is performed by running the application locally.
+
+Step 1:
+Start the FastAPI application using:
+
+uvicorn main:app --reload
+
+Step 2:
+Open the application in a web browser:
+
+http://127.0.0.1:8000
+
+Step 3:
+Demonstrate Question Answering
+• Enter an educational question.
+• Submit the question.
+• Display the AI-generated answer.
+
+Step 4:
+Demonstrate Concept Explanation
+• Enter a complex topic.
+• Select the Explain option.
+• Display the simplified explanation.
+
+Step 5:
+Demonstrate Summarization
+• Enter a long educational passage.
+• Select the Summary option.
+• Display the generated concise summary.
+
+Step 6:
+Demonstrate Quiz Generation
+• Enter a topic or passage.
+• Select the Quiz option.
+• Generate 3 MCQs with 4 options each.
+• Demonstrate the correct answers.
+
+Step 7:
+Demonstrate Learning Recommendations
+• Enter a learning topic.
+• Select the Recommend Path option.
+• Display the beginner-to-advanced learning path and resources.
+
+Finally, demonstrate that all major EduGenie features are integrated into a single AI-powered educational assistant.

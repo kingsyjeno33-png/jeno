@@ -1,0 +1,30 @@
+4. Project Planning Phase
+
+The EduGenie project is planned and divided into different milestones.
+
+Milestone 1: Model Selection and Architecture
+• Select suitable AI models.
+• Design the overall system architecture.
+• Define the project folder structure.
+
+Milestone 2: Core Functionality Development
+• Develop the Explanation Module.
+• Develop the Q&A Module.
+• Develop the Quiz Module.
+• Develop the Summary Module.
+• Develop the Learning Path Module.
+• Create FastAPI REST endpoints.
+
+Milestone 3: Frontend Development
+• Create the HTML interface.
+• Create CSS styling.
+• Add task selection.
+• Add user input area.
+• Display generated results.
+
+Milestone 4: Deployment and Testing
+• Run the application locally.
+• Connect frontend and backend.
+• Test all AI functionalities.
+• Verify API responses.
+• Demonstrate the complete application.
